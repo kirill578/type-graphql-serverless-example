@@ -1,0 +1,1 @@
+export const lambda = (event, context, cb) => cb(null, "hello world");

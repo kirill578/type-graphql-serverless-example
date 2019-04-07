@@ -1,0 +1,24 @@
+service: type-graphql-demo
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    host: 0.0.0.0
+    port: 3000
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+
+  hello:
+    handler: src/main.lambda
+    events:
+      - http:
+          method: get
+          path: hello
+          integration: lambda
