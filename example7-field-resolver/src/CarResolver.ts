@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import {Args, Field, FieldResolver, InputType, Int, Query, Resolver} from "type-graphql";
+import {Arg, Field, FieldResolver, InputType, Int, Query, Resolver} from "type-graphql";
 import {injectable} from "inversify";
 import {Car} from "./Car";
 import {plainToClass} from "class-transformer";
@@ -10,7 +10,7 @@ export class CarResolver {
     constructor() {}
 
     @Query(() => Car)
-    async getMyCar() {
+    async getMyCar(@Arg("otherCar") car: Car) {
         return plainToClass(Car, {
             id: "123456",
             make: "Ford",

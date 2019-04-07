@@ -1,7 +1,7 @@
-import {ID, Field, ObjectType}
+import {ID, Field, InputType}
     from 'type-graphql';
 
-@ObjectType()
+@InputType()
 export class Car {
     @Field(() => ID)
     id: string;
@@ -12,3 +12,5 @@ export class Car {
     @Field()
     weight: number;
 }
+
+
